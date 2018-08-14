@@ -1,0 +1,23 @@
+{
+  "name": "expo-multiple-imagepicker",
+  "version": "1.0.0",
+  "description": "multiple image selecting package for expo",
+  "homepage": "https://github.com/prancky/expo-multiple-imagepicker",
+  "main": "ImageBrowser.js",
+  "peerDependencies": {
+    "react-native": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "expo",
+    "imagepicker"
+  ],
+  "author": "sharmal <prancasiousp@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "expo": "^29.0.0",
+    "react-native": "^0.56.0"
+  }
+}
