@@ -105,6 +105,7 @@ export default class ImageBrowser extends React.Component {
       <ImageTile
         item={item}
         index={index}
+        camera={false}
         selected={selected}
         selectImage={this.selectImage}
       />

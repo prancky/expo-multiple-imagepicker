@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, ScrollView,Image} from 'react-native';
-import ImageBrowser from 'expo-multiple-imagepicker';
+import {ImageBrowser,CameraBrowser} from 'expo-multiple-imagepicker';
 
 export default class TestApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       imageBrowserOpen: false,
+      cameraBrowserOpen: false,
       photos: []
     }
   }
@@ -29,9 +30,12 @@ export default class TestApp extends React.Component {
       />
     )
   }
+
   render() {
     if (this.state.imageBrowserOpen) {
-      return(<ImageBrowser max={4} callback={this.imageBrowserCallback}/>);
+      return(<ImageBrowser max={10} callback={this.imageBrowserCallback}/>);
+    }else if (this.state.cameraBrowserOpen) {
+      return(<CameraBrowser max={10} callback={this.imageBrowserCallback}/>);
     }
     return (
       <View style={styles.container}>
@@ -47,6 +51,7 @@ export default class TestApp extends React.Component {
       </View>
     );
   }
+
 }
 
 const styles = StyleSheet.create({
