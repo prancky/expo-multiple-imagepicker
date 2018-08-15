@@ -28,7 +28,7 @@ class ImageTile extends React.PureComponent {
             />
             {selected && <Image
               style={{position: 'absolute', left: 'auto', top: 'auto', marginLeft: 'auto'}}
-              source={require('./Assets/tick-2.png')}
+              source={require('../Assets/tick-2.png')}
             />}
           </View>
         </View> : <Image

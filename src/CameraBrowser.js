@@ -200,15 +200,9 @@ export default class ImageBrowser extends React.Component {
                 onPress={() => {
                   this._snap()
                 }}>
-                {/*
-                  <Text
-                    style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>
-                    {'Take Photo'}
-                  </Text>
-                  */}
                   <Image
                     style={{marginVertical: 10}}
-                    source={require('./Assets/border.png')}
+                    source={require('../Assets/border.png')}
                   />
               </TouchableOpacity>
             </View>
