@@ -9,9 +9,10 @@ import {
   Button,
   Image,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  ActivityIndicator
 } from 'react-native';
-import { FileSystem,Camera,Permissions,Vibration } from 'expo';
+import { FileSystem,Camera,Permissions } from 'expo';
 import ImageTile from './ImageTile';
 const { width } = Dimensions.get('window')
 
@@ -31,6 +32,7 @@ export default class ImageBrowser extends React.Component {
       ratios: [],
       selected: {},
       //photoId: 0,
+      capturing:false,
       showGallery: false,
       photos: [],
       flashIcon:'flash-on'
@@ -67,10 +69,12 @@ export default class ImageBrowser extends React.Component {
         var photoList = this.state.photos
         photoList.push(result.uri)
         this.setState({
-          photos: photoList
+          photos: photoList,
+          //capturing:false
         });
         this.selectImage(photoList.length - 1);
       }
+
     }
   }
 
@@ -91,7 +95,7 @@ export default class ImageBrowser extends React.Component {
   }
 
   selectImage = (index) => {
-    let newSelected = {...this.state.selected};
+     let newSelected = {...this.state.selected};
     if (newSelected[index]) {
       delete newSelected[index];
     } else {
@@ -99,9 +103,8 @@ export default class ImageBrowser extends React.Component {
     }
     if (Object.keys(newSelected).length > this.props.max) return;
     if (!newSelected) newSelected = {};
-    this.setState({ selected: newSelected })
+     this.setState({ selected: newSelected })
   }
-
 
 
   render() {
@@ -135,12 +138,12 @@ export default class ImageBrowser extends React.Component {
                 onPress={() => {
                   this.props.callback(Promise.resolve([]))
                 }}>
-                <Text
-                  style={{ fontSize: 18, marginTop: 50, color: 'white' }}>
-                  {' '}Close{' '}
-                </Text>
+                <Image
+                  style={{position: 'absolute', left: 'auto', top: 'auto', marginLeft: 'auto', marginTop: 25}}
+                  source={require('../Assets/close-circular-button-of-a-cross.png')}
+                />
               </TouchableOpacity>
-              {Object.keys(this.state.selected).length > 0 && <TouchableOpacity
+              {this.state.selected  && <TouchableOpacity
                 style={{
                   flex: 1,
                   alignSelf: 'flex-start',
@@ -149,17 +152,17 @@ export default class ImageBrowser extends React.Component {
                 onPress={() => {
                   this.prepareCallback()
                 }}>
-                <Text
-                  style={{ fontSize: 18, marginTop: 50, color: 'white' }}>
-                  {'Done'}
-                </Text>
+                <Image
+                  style={{position: 'absolute', left: 'auto', top: 'auto', marginLeft: 'auto', marginTop: 25}}
+                  source={require('../Assets/circular-check-button.png')}
+                />
               </TouchableOpacity>}
               </View>
-
+              {/*this.state.capturing && <ActivityIndicator size="large" />*/}
             {this.state.photos &&  <View style={{
               flex: 1,
               alignSelf: 'flex-start',
-              alignItems: 'center',
+              alignItems: 'center'
             }} >
               <ScrollView
                 horizontal={true} >
@@ -198,7 +201,8 @@ export default class ImageBrowser extends React.Component {
                   alignItems: 'center',
                 }}
                 onPress={() => {
-                  this._snap()
+                  this._snap();
+                  //this.setState({capturing:true});
                 }}>
                   <Image
                     style={{marginVertical: 10}}

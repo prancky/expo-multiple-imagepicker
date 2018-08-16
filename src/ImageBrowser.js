@@ -87,12 +87,12 @@ export default class ImageBrowser extends React.Component {
     return (
       <View style={styles.header}>
         <Button
-          title="Exit"
+          title="Close"
           onPress={() => this.props.callback(Promise.resolve([]))}
         />
         <Text>{headerText}</Text>
         <Button
-          title="Choose"
+          title="Done"
           onPress={() => this.prepareCallback()}
         />
       </View>
