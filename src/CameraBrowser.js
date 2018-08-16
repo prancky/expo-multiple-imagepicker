@@ -106,7 +106,6 @@ export default class ImageBrowser extends React.Component {
      this.setState({ selected: newSelected })
   }
 
-
   render() {
     const { hasCameraPermission } = this.state;
     if (hasCameraPermission === null) {
@@ -139,8 +138,8 @@ export default class ImageBrowser extends React.Component {
                   this.props.callback(Promise.resolve([]))
                 }}>
                 <Image
-                  style={{position: 'absolute', left: 'auto', top: 'auto', marginLeft: 'auto', marginTop: 25}}
-                  source={require('../Assets/close-circular-button-of-a-cross.png')}
+                  style={{margin: 15}}
+                  source={require('../Assets/cam-close.png')}
                 />
               </TouchableOpacity>
               {this.state.selected  && <TouchableOpacity
@@ -153,8 +152,8 @@ export default class ImageBrowser extends React.Component {
                   this.prepareCallback()
                 }}>
                 <Image
-                  style={{position: 'absolute', left: 'auto', top: 'auto', marginLeft: 'auto', marginTop: 25}}
-                  source={require('../Assets/circular-check-button.png')}
+                  style={{margin: 15}}
+                  source={require('../Assets/done.png')}
                 />
               </TouchableOpacity>}
               </View>

@@ -1,6 +1,6 @@
 {
   "name": "expo-multiple-imagepicker",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "multiple image selecting package for expo",
   "homepage": "https://github.com/prancky/expo-multiple-imagepicker",
   "main": "src/index.js",
