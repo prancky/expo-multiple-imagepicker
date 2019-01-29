@@ -40,7 +40,7 @@ export default class ImageBrowser extends React.Component {
   }
 
   getPhotos = () => {
-    let params = { first: 500, mimeTypes: ['image/jpeg'] };
+    let params = { first: 500, mimeTypes: ['image/jpeg', 'video/mp4'] };
     if (this.state.after) params.after = this.state.after
     if (!this.state.has_next_page) return
     CameraRoll
