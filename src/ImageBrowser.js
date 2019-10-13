@@ -8,7 +8,13 @@ import {
   Dimensions,
   Button
 } from 'react-native';
+/*
+EXPO SDK 35 doesnt work with this mport format of the FileSystem module , I have updated it
 import { FileSystem } from 'expo';
+
+*/
+import * as FileSystem from 'expo-file-system';
+
 import ImageTile from './ImageTile';
 const { width } = Dimensions.get('window')
 
