@@ -5,7 +5,8 @@
   "homepage": "https://github.com/prancky/expo-multiple-imagepicker",
   "main": "src/index.js",
   "peerDependencies": {
-    "react-native": "*"
+    "react-native": "*",
+    "expo-file-system": "~7.0.0",
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
